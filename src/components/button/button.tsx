@@ -1,4 +1,4 @@
-import { Icon } from '../icona';
+import { Icon } from '../icon';
 
 import '../../styles/button.scss';
 
