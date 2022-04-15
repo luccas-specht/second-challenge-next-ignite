@@ -1,12 +1,6 @@
 import { ButtonHTMLAttributes } from 'react';
 
-export type IconName =
-  | 'drama'
-  | 'action'
-  | 'comedy'
-  | 'horror'
-  | 'family'
-  | 'documentary';
+import { IconName } from '../../models';
 
 export type ButtonProps = ButtonHTMLAttributes<HTMLButtonElement> & {
   title: string;
