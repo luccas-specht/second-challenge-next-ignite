@@ -1,2 +1,3 @@
-export { Icon } from './icon';
-export { Button } from './button';
+export * from './icon';
+export * from './button';
+export * from './movie-card';

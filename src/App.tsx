@@ -1,7 +1,6 @@
 import { useEffect, useState } from 'react';
 
-import { Button } from './components';
-import { MovieCard } from './components/MovieCard';
+import { Button, MovieCard } from './components';
 
 // import { SideBar } from './components/SideBar';
 // import { Content } from './components/Content';
