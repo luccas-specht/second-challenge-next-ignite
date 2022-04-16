@@ -1,4 +1,3 @@
-import { useMemo } from 'react';
 import { Icon } from '../icon';
 
 import styles from './style.module.scss';
