@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 
-import { Button, MovieCard } from './components';
+import { SideBar, MovieCard } from './components';
 
 // import { SideBar } from './components/SideBar';
 // import { Content } from './components/Content';
@@ -12,35 +12,16 @@ import './styles/global.scss';
 import './styles/sidebar.scss';
 import './styles/content.scss';
 
-interface GenreResponseProps {
-  id: number;
-  name: 'action' | 'comedy' | 'documentary' | 'drama' | 'horror' | 'family';
-  title: string;
-}
-
-interface MovieProps {
-  imdbID: string;
-  Title: string;
-  Poster: string;
-  Ratings: Array<{
-    Source: string;
-    Value: string;
-  }>;
-  Runtime: string;
-}
+import { GenreDTO, MovieProps } from './models';
 
 export function App() {
+  const [genres, setGenres] = useState([] as GenreDTO[]);
+  const [movies, setMovies] = useState([] as MovieProps[]);
+  const [selectedGenreTitle, setSelectedGenreTitle] = useState('');
   const [selectedGenreId, setSelectedGenreId] = useState(1);
 
-  const [genres, setGenres] = useState<GenreResponseProps[]>([]);
-
-  const [movies, setMovies] = useState<MovieProps[]>([]);
-  const [selectedGenre, setSelectedGenre] = useState<GenreResponseProps>(
-    {} as GenreResponseProps
-  );
-
   useEffect(() => {
-    api.get<GenreResponseProps[]>('genres').then((response) => {
+    api.get<GenreDTO[]>('genres').then((response) => {
       setGenres(response.data);
     });
   }, []);
@@ -52,41 +33,27 @@ export function App() {
         setMovies(response.data);
       });
 
-    api
-      .get<GenreResponseProps>(`genres/${selectedGenreId}`)
-      .then((response) => {
-        setSelectedGenre(response.data);
-      });
+    api.get<GenreDTO>(`genres/${selectedGenreId}`).then((response) => {
+      setSelectedGenreTitle(response.data.title);
+    });
   }, [selectedGenreId]);
 
-  function handleClickButton(id: number) {
+  const handleClickButton = (id: number) => {
     setSelectedGenreId(id);
-  }
+  };
 
   return (
     <div style={{ display: 'flex', flexDirection: 'row' }}>
-      <nav className="sidebar">
-        <span>
-          Watch<p>Me</p>
-        </span>
-
-        <div className="buttons-container">
-          {genres.map((genre) => (
-            <Button
-              key={String(genre.id)}
-              title={genre.title}
-              iconName={genre.name}
-              onClick={() => handleClickButton(genre.id)}
-              selected={selectedGenreId === genre.id}
-            />
-          ))}
-        </div>
-      </nav>
+      <SideBar
+        genres={genres}
+        handleClickButton={handleClickButton}
+        selectedGenreId={selectedGenreId}
+      />
 
       <div className="container">
         <header>
           <span className="category">
-            Categoria:<span> {selectedGenre.title}</span>
+            Categoria:<span> {selectedGenreTitle}</span>
           </span>
         </header>
 
