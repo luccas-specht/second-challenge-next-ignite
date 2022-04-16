@@ -1,4 +1,6 @@
+import { IconName } from '../../models';
+
 export type IconProps = {
-  name: 'action' | 'comedy' | 'documentary' | 'drama' | 'horror' | 'family';
+  name: IconName;
   color: string;
 };

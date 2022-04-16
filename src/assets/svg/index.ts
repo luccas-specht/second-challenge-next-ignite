@@ -5,7 +5,7 @@ import { comedy } from './comedy';
 import { family } from './family';
 import { documentary } from './documentary';
 
-export const wrapperAvailableIcon = {
+export const availableIcons = {
   drama,
   action,
   comedy,

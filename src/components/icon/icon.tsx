@@ -1,6 +1,5 @@
 import { IconProps } from './types';
 
-import { wrapperAvailableIcon } from '../../assets/svg';
+import { availableIcons } from '../../assets/svg';
 
-export const Icon = ({ name, color }: IconProps) =>
-  wrapperAvailableIcon[name](color);
+export const Icon = ({ name, color }: IconProps) => availableIcons[name](color);
