@@ -7,7 +7,7 @@
   width: 100%;
 
   border: 0;
-  background: var(--background-button);
+  background: var(--black-500);
   padding: 1.1875rem 2rem;
   border-radius: 0.25rem;
 
@@ -15,7 +15,7 @@
   color: var(--white);
 
   &:hover {
-    background: var(--background-button2);
+    background: var(--black-400);
   }
 
   transition: background 200ms;
@@ -29,7 +29,7 @@
   }
 
   &.selected {
-    background: var(--background-button2);
+    background: var(--black-400);
     color: var(--yellow);
   }
 }
