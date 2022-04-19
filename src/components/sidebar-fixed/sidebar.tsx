@@ -27,7 +27,7 @@ export const SideBarFixed = ({
   return (
     <nav className={styles.sidebar}>
       <span>
-        Watch<p> Me</p>
+        Watch<p>Me</p>
       </span>
       <div className={styles['buttons-container']}>{renderGenreButtons()}</div>
     </nav>
