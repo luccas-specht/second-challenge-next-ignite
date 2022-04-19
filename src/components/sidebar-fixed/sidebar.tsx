@@ -1,7 +1,7 @@
 import { useCallback } from 'react';
 
 import { Props } from './types';
-import { Logo, Button } from '..';
+import { Button } from '..';
 
 import styles from './styles.module.scss';
 
@@ -26,7 +26,9 @@ export const SideBarFixed = ({
 
   return (
     <nav className={styles.sidebar}>
-      <Logo />
+      <span>
+        Watch<p> Me</p>
+      </span>
       <div className={styles['buttons-container']}>{renderGenreButtons()}</div>
     </nav>
   );

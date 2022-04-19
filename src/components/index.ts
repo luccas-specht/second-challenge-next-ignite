@@ -1,5 +1,4 @@
 export * from './icon';
-export * from './logo';
 export * from './button';
 export * from './Content';
 export * from './SideBar';
